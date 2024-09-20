@@ -1,0 +1,14 @@
+{
+  "name": "Latijnse Werkwoorden",
+  "version": "1.0.0",
+  "description": "Web applicatie om latijnse werkwoorden te leren",
+  "scripts": {
+    "build:back": "docker-compose build netapi-app",
+    "build:front": "docker-compose build nextjs-app",
+    "start:db": "docker-compose up mysql-db",
+    "start:back": "docker-compose up netapi-app --renew-anon-volumes",
+    "start:front": "docker-compose up nextjs-app --renew-anon-volumes",
+    "clean": "docker-compose down -v"
+  },
+  "author": "Ard Koornstra",
+}
