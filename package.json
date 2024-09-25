@@ -10,5 +10,5 @@
     "start:front": "docker-compose up nextjs-app --renew-anon-volumes",
     "clean": "docker-compose down -v"
   },
-  "author": "Ard Koornstra",
+  "author": "Ard Koornstra"
 }
