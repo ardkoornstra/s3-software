@@ -7,8 +7,8 @@ services:
 
   mysql-db:
     container_name:  mysql-db
-    image: mysql:5.7
-    command: --default-authentication-plugin=caching_sha2_password
+    image: mysql:8.0
+    #command: --default-authentication-plugin=caching_sha2_password
     restart: unless-stopped
     env_file: ./.env
     environment:
@@ -17,7 +17,7 @@ services:
       - $MYSQLDB_LOCAL_PORT:$MYSQLDB_DOCKER_PORT
     volumes:
       - mysql-volume:/var/lib/mysql:rw
-      - ./mysql-db:/docker-entrypoint-initdb.d/
+      - ./mysqldb:/docker-entrypoint-initdb.d/
     networks:
       - default
 
@@ -25,9 +25,12 @@ services:
     container_name: netapi-app
     depends_on:
       - mysql-db
-    build: ./netapi-app
+    build:
+      context: ./LatijnBackend
+      dockerfile: Dockerfile
     restart: unless-stopped
     env_file: ./.env
+    image: mcr.microsoft.com/dotnet/samples:aspnetapp
     ports:
       - $NETAPI_APP_LOCAL_PORT:$NETAPI_APP_DOCKER_PORT
     environment:
@@ -36,20 +39,17 @@ services:
       - DB_PASSWORD=$MYSQLDB_PASSWORD
       - DB_DATABASE=$MYSQLDB_DATABASE
       - DB_PORT=$MYSQLDB_DOCKER_PORT
-    stdin_open: true
-    tty: true
     volumes:
-      - ./netapi-app:/app
-      - /app/node_modules
+      - ~/.aspnet/https:/https:ro
     networks:
       - default
     
   nextjs-app:
     container_name: nextjs-app
     depends_on: 
-      - nestjs-app
+      - netapi-app
     build:
-      context: ./nextjs-app
+      context: ./latijnfrontend
       dockerfile: Dockerfile
     restart: unless-stopped
     env_file: ./.env
@@ -58,9 +58,9 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - ./nextjs-app:/app
-      - /app/node_modules
-      - /app/.next
+      - ./latijnfrontend:/app
+    #  - /app/node_modules
+    #  - /app/.next
     networks:
       - default
 
