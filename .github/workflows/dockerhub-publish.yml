@@ -1,0 +1,24 @@
+name: Push Docker image to Docker Hub
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        ref: "main"
+    - name: Login to Docker hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{secrets.DOCKERHUB_USERNAME}}
+        password: ${{secrets.DOCKERHUB_TOKEN}}
+    - name: Push the Docker image
+      run: |
+        docker-compose build
+        docker-compose push
+      
