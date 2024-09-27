@@ -30,7 +30,7 @@ services:
       dockerfile: Dockerfile
     restart: unless-stopped
     env_file: ./.env
-    image: mcr.microsoft.com/dotnet/samples:aspnetapp
+    image: guildramon/latijn-docker-image:latest
     ports:
       - $NETAPI_APP_LOCAL_PORT:$NETAPI_APP_DOCKER_PORT
     environment:
@@ -51,6 +51,7 @@ services:
     build:
       context: ./latijnfrontend
       dockerfile: Dockerfile
+    image: guildramon/latijn-docker-image:latest
     restart: unless-stopped
     env_file: ./.env
     ports:
