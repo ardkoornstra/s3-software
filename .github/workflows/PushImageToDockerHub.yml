@@ -19,7 +19,7 @@ jobs:
       - name: Build and push backend
         uses: docker/build-push-action@v6
         with:
-          context: ./LatijnBackend/LatijnBackend
+          context: "{{defaultContext}}:LatijnBackend/LatijnBackend"
           file: ./LatijnBackend/Dockerfile
           push: true
           tags: guildramon/latijn-docker-image:latest
