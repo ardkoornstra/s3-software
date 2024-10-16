@@ -1,12 +1,4 @@
-import {
-  Box,
-  Button,
-  Container,
-  Flex,
-  Heading,
-  Section,
-  Text,
-} from "@radix-ui/themes";
+import { Container, Heading, Section } from "@radix-ui/themes";
 
 export default function Home() {
   return (
