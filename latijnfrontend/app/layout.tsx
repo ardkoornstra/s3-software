@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "@radix-ui/themes/styles.css";
-import { Theme } from "@radix-ui/themes";
+import { Container, Theme } from "@radix-ui/themes";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import Header from "./components/header";
@@ -21,7 +21,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="light">
           <Theme accentColor="grass">
             <Header />
-            {children}
+            <Container size="3">{children}</Container>
           </Theme>
         </ThemeProvider>
       </body>

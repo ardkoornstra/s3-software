@@ -1,3 +1,3 @@
 export default function Woordenlijst() {
-  return <></>;
+  return <>woordenlijst</>;
 }

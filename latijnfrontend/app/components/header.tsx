@@ -7,9 +7,13 @@ export default function Header() {
   return (
     <Box className="header">
       <Flex justify="between" p="3">
-        <Menu />
-        <Heading>Latijnse Werkwoorden</Heading>
-        <Flex gap="3">
+        <Box width="33.33%">
+          <Menu />
+        </Box>
+        <Box width="33.33%">
+          <Heading align="center">Latijnse Werkwoorden</Heading>
+        </Box>
+        <Flex gap="3" justify="end" width="33.33%">
           <Button>
             <PersonIcon />
             Log in
