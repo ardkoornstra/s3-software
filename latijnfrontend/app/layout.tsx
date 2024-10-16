@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
+import { ThemeProvider } from "next-themes";
 import "./globals.css";
+import Header from "./components/header";
 
 export const metadata: Metadata = {
   title: "Latijn",
@@ -16,7 +18,12 @@ export default function RootLayout({
   return (
     <html lang="nl">
       <body>
-        <Theme>{children}</Theme>
+        <ThemeProvider attribute="class" defaultTheme="light">
+          <Theme accentColor="grass">
+            <Header />
+            {children}
+          </Theme>
+        </ThemeProvider>
       </body>
     </html>
   );

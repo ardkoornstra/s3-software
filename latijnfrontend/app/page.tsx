@@ -1,21 +1,21 @@
-import { CheckIcon } from "@radix-ui/react-icons";
-import { Button, Container, Heading, Section, Text } from "@radix-ui/themes";
+import {
+  Box,
+  Button,
+  Container,
+  Flex,
+  Heading,
+  Section,
+  Text,
+} from "@radix-ui/themes";
 
 export default function Home() {
   return (
     <>
-      <Container>
+      <Container size="3">
         <Section size="1">
-          <Heading size="9">Welkom op deze pagina</Heading>
-          <Text size="5" color="red">
-            Dit is een test
-          </Text>
+          <Heading>homepagina</Heading>
         </Section>
-        <Section size="1">
-          <Button>
-            <CheckIcon /> Ok dat is fijn
-          </Button>
-        </Section>
+        <Section size="1"></Section>
       </Container>
     </>
   );
