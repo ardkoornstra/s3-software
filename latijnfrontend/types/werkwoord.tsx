@@ -1,5 +1,6 @@
 type Werkwoord = {
-  infititivus: string;
+  id: number;
+  infinitivus: string;
   praesens: string;
   perfectum: string;
   supinum: string;

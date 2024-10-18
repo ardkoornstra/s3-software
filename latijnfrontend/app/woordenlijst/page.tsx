@@ -5,28 +5,30 @@ import { useEffect, useState } from "react";
 export default function Woordenlijst() {
   const array = [
     {
-      infititivus: "a",
-      praesens: "b",
-      perfectum: "c",
-      supinum: "d",
+      id: 1,
+      infinitivus: "a",
+      praesens: "a",
+      perfectum: "a",
+      supinum: "a",
       conjugatie: 1,
-      betekenis: "c",
+      betekenis: "a",
     },
     {
-      infititivus: "a",
+      id: 2,
+      infinitivus: "b",
       praesens: "b",
-      perfectum: "c",
-      supinum: "d",
-      conjugatie: 1,
-      betekenis: "c",
+      perfectum: "b",
+      supinum: "b",
+      conjugatie: 2,
+      betekenis: "b",
     },
   ];
   const [woordenlijst, setWoordenlijst] = useState<Werkwoord[]>(array);
 
   function createRows() {
     const rows = woordenlijst.map((woord) => (
-      <Table.Row key={woord.infititivus}>
-        <Table.Cell>{woord.infititivus}</Table.Cell>
+      <Table.Row key={woord.id}>
+        <Table.Cell>{woord.infinitivus}</Table.Cell>
         <Table.Cell>{woord.praesens}</Table.Cell>
         <Table.Cell>{woord.perfectum}</Table.Cell>
         <Table.Cell>{woord.supinum}</Table.Cell>
