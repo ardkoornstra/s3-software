@@ -5,15 +5,15 @@ import Menu from "./menu";
 
 export default function Header() {
   return (
-    <Box className="header">
-      <Flex justify="between" p="3">
-        <Box width="33.33%">
+    <Box className={"header"}>
+      <Flex justify={"between"} p={"3"}>
+        <Box width={"33.33%"}>
           <Menu />
         </Box>
-        <Box width="33.33%">
-          <Heading align="center">Latijnse Werkwoorden</Heading>
+        <Box width={"33.33%"}>
+          <Heading align={"center"}>Latijnse Werkwoorden</Heading>
         </Box>
-        <Flex gap="3" justify="end" width="33.33%">
+        <Flex gap={"3"} justify={"end"} width={"33.33%"}>
           <Button>
             <PersonIcon />
             Log in

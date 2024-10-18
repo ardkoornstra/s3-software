@@ -18,10 +18,10 @@ export default function RootLayout({
   return (
     <html lang="nl">
       <body>
-        <ThemeProvider attribute="class" defaultTheme="light">
-          <Theme accentColor="grass">
+        <ThemeProvider attribute={"class"} defaultTheme={"light"}>
+          <Theme accentColor={"grass"}>
             <Header />
-            <Container size="3">{children}</Container>
+            <Container size={"3"}>{children}</Container>
           </Theme>
         </ThemeProvider>
       </body>
