@@ -1,6 +1,0 @@
-@LatijnBackend_HostAddress = http://localhost:5062
-
-GET {{LatijnBackend_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
