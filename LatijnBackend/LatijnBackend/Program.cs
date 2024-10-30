@@ -1,4 +1,7 @@
+using LatijnBackend.Data;
+using LatijnBackend.Logic;
 using LatijnBackend.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +13,10 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+//Dependencies
+builder.Services.AddScoped<IWerkwoordenLogic, WerkwoordenLogic>();
+builder.Services.AddScoped<IWerkwoordenDataAccess, WerkwoordenDataAccess>();
 
 var app = builder.Build();
 

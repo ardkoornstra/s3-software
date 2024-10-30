@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using LatijnBackend.Models;
+using LatijnBackend.Logic;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,11 +10,20 @@ namespace LatijnBackend.Controllers
     [ApiController]
     public class WerkwoordenController : ControllerBase
     {
+        private readonly IWerkwoordenLogic _logic;
+
+        WerkwoordenController(IWerkwoordenLogic logic)
+        {
+            _logic = logic;
+        }
+        
+        
         // GET: api/<WerkwoordenController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Werkwoord> Get()
         {
-            return new string[] { "value1", "value2" };
+            List<Werkwoord> werkwoorden = _logic.GetAllWerkwoorden();
+            return werkwoorden;
         }
 
         // GET api/<WerkwoordenController>/5
