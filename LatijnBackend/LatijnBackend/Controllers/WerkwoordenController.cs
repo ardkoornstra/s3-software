@@ -12,7 +12,7 @@ namespace LatijnBackend.Controllers
     {
         private readonly IWerkwoordenLogic _logic;
 
-        WerkwoordenController(IWerkwoordenLogic logic)
+        public WerkwoordenController(IWerkwoordenLogic logic)
         {
             _logic = logic;
         }

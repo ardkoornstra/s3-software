@@ -15,8 +15,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //Dependencies
-builder.Services.AddScoped<IWerkwoordenLogic, WerkwoordenLogic>();
-builder.Services.AddScoped<IWerkwoordenDataAccess, WerkwoordenDataAccess>();
+//builder.Services.AddScoped<IWerkwoordenLogic, WerkwoordenLogic>();
+builder.Services.AddScoped<IWerkwoordenLogic>(sp => new WerkwoordenLogic(new WerkwoordenDataAccess()));
+//builder.Services.AddScoped<IWerkwoordenDataAccess, WerkwoordenDataAccess>();
 
 var app = builder.Build();
 

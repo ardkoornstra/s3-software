@@ -8,7 +8,7 @@ namespace LatijnBackend.Logic
     {
         private readonly IWerkwoordenDataAccess _dataAccess;
 
-        WerkwoordenLogic(IWerkwoordenDataAccess dataAccess) {
+        public WerkwoordenLogic(IWerkwoordenDataAccess dataAccess) {
             _dataAccess = dataAccess;
         }
 

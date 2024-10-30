@@ -5,11 +5,11 @@ namespace LatijnBackend.Data
 {
     public class WerkwoordenDataAccess : IWerkwoordenDataAccess
     {
-        private readonly LatijnContext _dbContext;
+        private readonly LatijnContext ?_dbContext;
 
-        WerkwoordenDataAccess(LatijnContext dbContext)
+        public WerkwoordenDataAccess()
         {
-            _dbContext = dbContext;
+            //_dbContext = dbContext;
         }
 
         public List<Werkwoord> GetAllWerkwoorden()
