@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace LatijnBackend.Models
+namespace LatijnAPI.Models
 {
     public class LatijnContext : DbContext
     {

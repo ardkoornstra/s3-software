@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using LatijnBackend.Models;
-using LatijnBackend.Logic;
+using LatijnAPI.Logic;
+using LatijnAPI.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace LatijnBackend.Controllers
+namespace LatijnAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -16,8 +16,8 @@ namespace LatijnBackend.Controllers
         {
             _logic = logic;
         }
-        
-        
+
+
         // GET: api/<WerkwoordenController>
         [HttpGet]
         public IEnumerable<Werkwoord> Get()

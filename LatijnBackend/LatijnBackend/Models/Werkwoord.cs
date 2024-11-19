@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace LatijnBackend.Models
+namespace LatijnAPI.Models
 {
     public class Werkwoord
     {

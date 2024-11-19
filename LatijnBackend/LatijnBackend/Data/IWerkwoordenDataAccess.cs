@@ -1,6 +1,6 @@
-﻿using LatijnBackend.Models;
+﻿using LatijnAPI.Models;
 
-namespace LatijnBackend.Data
+namespace LatijnAPI.Data
 {
     public interface IWerkwoordenDataAccess
     {

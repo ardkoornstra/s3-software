@@ -1,14 +1,15 @@
-﻿using LatijnBackend.Models;
-using LatijnBackend.Data;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using LatijnAPI.Data;
+using LatijnAPI.Models;
 
-namespace LatijnBackend.Logic
+namespace LatijnAPI.Logic
 {
     public class WerkwoordenLogic : IWerkwoordenLogic
     {
         private readonly IWerkwoordenDataAccess _dataAccess;
 
-        public WerkwoordenLogic(IWerkwoordenDataAccess dataAccess) {
+        public WerkwoordenLogic(IWerkwoordenDataAccess dataAccess)
+        {
             _dataAccess = dataAccess;
         }
 

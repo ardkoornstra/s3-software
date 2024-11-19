@@ -1,6 +1,6 @@
+using LatijnAPI.Models;
 using LatijnBackend.Data;
 using LatijnBackend.Logic;
-using LatijnBackend.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,7 +16,7 @@ builder.Services.AddSwaggerGen();
 
 //Dependencies
 //builder.Services.AddScoped<IWerkwoordenLogic, WerkwoordenLogic>();
-builder.Services.AddScoped<IWerkwoordenLogic>(sp => new WerkwoordenLogic(new WerkwoordenDataAccess()));
+//builder.Services.AddScoped<IWerkwoordenLogic>(sp => new WerkwoordenLogic(new WerkwoordenDataAccess()));
 //builder.Services.AddScoped<IWerkwoordenDataAccess, WerkwoordenDataAccess>();
 
 var app = builder.Build();

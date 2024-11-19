@@ -1,6 +1,6 @@
-﻿using LatijnBackend.Models;
+﻿using LatijnAPI.Models;
 
-namespace LatijnBackend.Logic
+namespace LatijnAPI.Logic
 {
     public interface IWerkwoordenLogic
     {
