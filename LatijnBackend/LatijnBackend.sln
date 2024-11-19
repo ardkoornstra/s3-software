@@ -4,6 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LatijnAPI", "LatijnBackend\LatijnAPI.csproj", "{2E6C28D6-18C9-4AE0-A522-C2DE5EE61464}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A2ACC867-23E1-48B3-9D66-C2C5F0D2A148} = {A2ACC867-23E1-48B3-9D66-C2C5F0D2A148}
+		{F747132A-E6F2-4F48-90FA-355B94B1391C} = {F747132A-E6F2-4F48-90FA-355B94B1391C}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LatijnTest", "LatijnTest\LatijnTest.csproj", "{2ECDE644-5F00-4E8D-BC47-1F01D8263C21}"
 EndProject
