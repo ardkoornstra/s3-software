@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using LatijnAPI.Logic;
-using LatijnAPI.Models;
+using LatijnLogic;
+using LatijnLogic.Types;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
