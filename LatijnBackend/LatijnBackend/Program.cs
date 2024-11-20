@@ -1,5 +1,5 @@
-using LatijnAPI.Models;
 using LatijnData;
+using LatijnLogic;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,6 +11,7 @@ builder.Services.AddDbContext<LatijnDbContext>(options => options.UseMySql(conne
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 builder.Services.AddSwaggerGen();
 
 //Dependencies
