@@ -3,9 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LatijnBackend", "LatijnBackend\LatijnBackend.csproj", "{2E6C28D6-18C9-4AE0-A522-C2DE5EE61464}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LatijnAPI", "LatijnBackend\LatijnAPI.csproj", "{2E6C28D6-18C9-4AE0-A522-C2DE5EE61464}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A2ACC867-23E1-48B3-9D66-C2C5F0D2A148} = {A2ACC867-23E1-48B3-9D66-C2C5F0D2A148}
+		{F747132A-E6F2-4F48-90FA-355B94B1391C} = {F747132A-E6F2-4F48-90FA-355B94B1391C}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LatijnTest", "LatijnTest\LatijnTest.csproj", "{2ECDE644-5F00-4E8D-BC47-1F01D8263C21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LatijnTest", "LatijnTest\LatijnTest.csproj", "{2ECDE644-5F00-4E8D-BC47-1F01D8263C21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LatijnLogic", "LatijnLogic\LatijnLogic.csproj", "{F747132A-E6F2-4F48-90FA-355B94B1391C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LatijnData", "LatijnData\LatijnData.csproj", "{A2ACC867-23E1-48B3-9D66-C2C5F0D2A148}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +29,14 @@ Global
 		{2ECDE644-5F00-4E8D-BC47-1F01D8263C21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2ECDE644-5F00-4E8D-BC47-1F01D8263C21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2ECDE644-5F00-4E8D-BC47-1F01D8263C21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F747132A-E6F2-4F48-90FA-355B94B1391C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F747132A-E6F2-4F48-90FA-355B94B1391C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F747132A-E6F2-4F48-90FA-355B94B1391C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F747132A-E6F2-4F48-90FA-355B94B1391C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2ACC867-23E1-48B3-9D66-C2C5F0D2A148}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2ACC867-23E1-48B3-9D66-C2C5F0D2A148}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2ACC867-23E1-48B3-9D66-C2C5F0D2A148}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2ACC867-23E1-48B3-9D66-C2C5F0D2A148}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
