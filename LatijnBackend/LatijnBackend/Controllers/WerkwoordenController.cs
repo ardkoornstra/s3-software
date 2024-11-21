@@ -19,7 +19,7 @@ namespace LatijnAPI.Controllers
 
 
         // GET: api/<WerkwoordenController>
-        [HttpGet]
+        [HttpGet("All")]
         public async Task<List<Werkwoord>> Get()
         {
             List<Werkwoord> werkwoorden = await _logic.GetAllWerkwoorden();

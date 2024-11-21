@@ -3,40 +3,34 @@ import { Heading, Section, Table } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 
 export default function Woordenlijst() {
-  const array = [
-    {
-      id: 1,
-      infinitivus: "a",
-      praesens: "a",
-      perfectum: "a",
-      supinum: "a",
-      conjugatie: 1,
-      betekenis: "a",
-    },
-    {
-      id: 2,
-      infinitivus: "b",
-      praesens: "b",
-      perfectum: "b",
-      supinum: "b",
-      conjugatie: 2,
-      betekenis: "b",
-    },
-  ];
-  const [woordenlijst, setWoordenlijst] = useState<Werkwoord[]>(array);
+  const [woordenlijst, setWoordenlijst] = useState<Werkwoord[]>();
+
+  useEffect(() => {
+    if (!woordenlijst) {
+      try {
+        fetch("https://localhost:7125/api/Werkwoorden/All")
+          .then((res) => res.json())
+          .then((data) => setWoordenlijst(data));
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }, []);
 
   function createRows() {
-    const rows = woordenlijst.map((woord) => (
-      <Table.Row key={woord.id}>
-        <Table.Cell>{woord.infinitivus}</Table.Cell>
-        <Table.Cell>{woord.praesens}</Table.Cell>
-        <Table.Cell>{woord.perfectum}</Table.Cell>
-        <Table.Cell>{woord.supinum}</Table.Cell>
-        <Table.Cell>{woord.conjugatie}</Table.Cell>
-        <Table.Cell>{woord.betekenis}</Table.Cell>
-      </Table.Row>
-    ));
-    return rows;
+    if (woordenlijst) {
+      const rows = woordenlijst.map((woord) => (
+        <Table.Row key={woord.id}>
+          <Table.Cell>{woord.infinitivus}</Table.Cell>
+          <Table.Cell>{woord.praesens}</Table.Cell>
+          <Table.Cell>{woord.perfectum}</Table.Cell>
+          <Table.Cell>{woord.supinum}</Table.Cell>
+          <Table.Cell>{woord.conjugatie}</Table.Cell>
+          <Table.Cell>{woord.betekenis}</Table.Cell>
+        </Table.Row>
+      ));
+      return rows;
+    }
   }
 
   return (
