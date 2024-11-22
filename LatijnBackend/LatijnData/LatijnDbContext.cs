@@ -9,15 +9,15 @@ namespace LatijnData
     public class LatijnDbContext : DbContext
     {
         public LatijnDbContext(DbContextOptions<LatijnDbContext> options) : base(options) {
-            SeedData();
+            SeedWerkwoorden();
         }
 
-        public void SeedData()
+        public void SeedWerkwoorden()
         {
             if (Werkwoorden.Any()) { return; }
 
             List<WerkwoordEF> seedList;
-            using (var reader = new StreamReader("C:\\Users\\Guildramon\\Documents\\GitHub\\s3-software\\LatijnBackend\\LatijnData\\SeedData\\Werkwoorden.csv"))
+            using (var reader = new StreamReader("SeedData\\Werkwoorden.csv"))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
                 csv.Context.RegisterClassMap<WerkwoordMap>();
@@ -28,6 +28,12 @@ namespace LatijnData
             SaveChanges();            
         }
 
+        public void SeedVervoegingen()
+        {
+
+        }
+
         public DbSet<WerkwoordEF> Werkwoorden { get; set; }
+        public DbSet<VervoegingEF> Vervoegingen { get; set; }
     }
 }
