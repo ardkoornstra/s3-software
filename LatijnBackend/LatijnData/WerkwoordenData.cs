@@ -1,4 +1,7 @@
-﻿using LatijnData.Models;
+﻿using AutoMapper;
+using LatijnData.Models;
+using LatijnLogic.Interfaces;
+using LatijnLogic.Types;
 using Microsoft.EntityFrameworkCore;
 
 namespace LatijnData
@@ -6,15 +9,19 @@ namespace LatijnData
     public class WerkwoordenData : IWerkwoordenData
     {
         private readonly LatijnDbContext _dbContext;
+        private readonly IMapper _mapper;
 
-        public WerkwoordenData(LatijnDbContext dbContext)
+        public WerkwoordenData(LatijnDbContext dbContext, IMapper mapper)
         {
             _dbContext = dbContext;
+            _mapper = mapper;
         }
 
-        public async Task<List<WerkwoordEF>> GetAllWerkwoorden()
+        public async Task<List<Werkwoord>> GetAllWerkwoorden()
         {
-            return await _dbContext.Werkwoorden.ToListAsync();
+            List<WerkwoordEF> werkwoordenEF = await _dbContext.Werkwoorden.ToListAsync();
+            List<Werkwoord> werkwoorden = _mapper.Map<List<Werkwoord>>(werkwoordenEF);
+            return werkwoorden;
         }
     }
 }

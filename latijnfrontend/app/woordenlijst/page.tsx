@@ -52,6 +52,7 @@ export default function Woordenlijst() {
 
         <Table.Body>{createRows()}</Table.Body>
       </Table.Root>
+      <Section size={"1"}></Section>
     </>
   );
 }

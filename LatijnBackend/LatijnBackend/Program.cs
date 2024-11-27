@@ -1,5 +1,6 @@
 using LatijnData;
 using LatijnLogic;
+using LatijnLogic.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 

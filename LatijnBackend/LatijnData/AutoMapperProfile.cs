@@ -2,7 +2,7 @@
 using LatijnData.Models;
 using LatijnLogic.Types;
 
-namespace LatijnLogic
+namespace LatijnData
 {
     public class AutoMapperProfile : Profile
     {
