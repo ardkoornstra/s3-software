@@ -1,0 +1,132 @@
+Vorm,Conjugatie,Modus,Tempus,Genus,Persoon,Getal,Stam
+o,4,indicativus,praesens,activum,eerste,singularis,praesens
+s,4,indicativus,praesens,activum,tweede,singularis,praesens
+t,4,indicativus,praesens,activum,derde,singularis,praesens
+mus,4,indicativus,praesens,activum,eerste,pluralis,praesens
+tis,4,indicativus,praesens,activum,tweede,pluralis,praesens
+unt,4,indicativus,praesens,activum,derde,pluralis,praesens
+ebam,4,indicativus,imperfectum,activum,eerste,singularis,praesens
+ebas,4,indicativus,imperfectum,activum,tweede,singularis,praesens
+ebat,4,indicativus,imperfectum,activum,derde,singularis,praesens
+ebamus,4,indicativus,imperfectum,activum,eerste,pluralis,praesens
+ebatis,4,indicativus,imperfectum,activum,tweede,pluralis,praesens
+ebant,4,indicativus,imperfectum,activum,derde,pluralis,praesens
+am,4,indicativus,futurum,activum,eerste,singularis,praesens
+es,4,indicativus,futurum,activum,tweede,singularis,praesens
+et,4,indicativus,futurum,activum,derde,singularis,praesens
+emus,4,indicativus,futurum,activum,eerste,pluralis,praesens
+etis,4,indicativus,futurum,activum,tweede,pluralis,praesens
+ent,4,indicativus,futurum,activum,derde,pluralis,praesens
+i,4,indicativus,perfectum,activum,eerste,singularis,perfectum
+isti,4,indicativus,perfectum,activum,tweede,singularis,perfectum
+it,4,indicativus,perfectum,activum,derde,singularis,perfectum
+imus,4,indicativus,perfectum,activum,eerste,pluralis,perfectum
+istis,4,indicativus,perfectum,activum,tweede,pluralis,perfectum
+erunt,4,indicativus,perfectum,activum,derde,pluralis,perfectum
+eram,4,indicativus,plusquamperfectum,activum,eerste,singularis,perfectum
+eras,4,indicativus,plusquamperfectum,activum,tweede,singularis,perfectum
+erat,4,indicativus,plusquamperfectum,activum,derde,singularis,perfectum
+eramus,4,indicativus,plusquamperfectum,activum,eerste,pluralis,perfectum
+eratis,4,indicativus,plusquamperfectum,activum,tweede,pluralis,perfectum
+erant,4,indicativus,plusquamperfectum,activum,derde,pluralis,perfectum
+ero,4,indicativus,futurum exactum,activum,eerste,singularis,perfectum
+eris,4,indicativus,futurum exactum,activum,tweede,singularis,perfectum
+erit,4,indicativus,futurum exactum,activum,derde,singularis,perfectum
+erimus,4,indicativus,futurum exactum,activum,eerste,pluralis,perfectum
+eritis,4,indicativus,futurum exactum,activum,tweede,pluralis,perfectum
+erint,4,indicativus,futurum exactum,activum,derde,pluralis,perfectum
+or,4,indicativus,praesens,passivum,eerste,singularis,praesens
+ris,4,indicativus,praesens,passivum,tweede,singularis,praesens
+tur,4,indicativus,praesens,passivum,derde,singularis,praesens
+mur,4,indicativus,praesens,passivum,eerste,pluralis,praesens
+mini,4,indicativus,praesens,passivum,tweede,pluralis,praesens
+untur,4,indicativus,praesens,passivum,derde,pluralis,praesens
+ebar,4,indicativus,imperfectum,passivum,eerste,singularis,praesens
+ebaris,4,indicativus,imperfectum,passivum,tweede,singularis,praesens
+ebatur,4,indicativus,imperfectum,passivum,derde,singularis,praesens
+ebamur,4,indicativus,imperfectum,passivum,eerste,pluralis,praesens
+ebamini,4,indicativus,imperfectum,passivum,tweede,pluralis,praesens
+ebantur,4,indicativus,imperfectum,passivum,derde,pluralis,praesens
+ar,4,indicativus,futurum,passivum,eerste,singularis,praesens
+eris,4,indicativus,futurum,passivum,tweede,singularis,praesens
+etur,4,indicativus,futurum,passivum,derde,singularis,praesens
+emur,4,indicativus,futurum,passivum,eerste,pluralis,praesens
+emini,4,indicativus,futurum,passivum,tweede,pluralis,praesens
+entur,4,indicativus,futurum,passivum,derde,pluralis,praesens
+us sum,4,indicativus,perfectum,passivum,eerste,singularis,supinum
+us es,4,indicativus,perfectum,passivum,tweede,singularis,supinum
+us est,4,indicativus,perfectum,passivum,derde,singularis,supinum
+i sumus,4,indicativus,perfectum,passivum,eerste,pluralis,supinum
+i estis,4,indicativus,perfectum,passivum,tweede,pluralis,supinum
+i sunt,4,indicativus,perfectum,passivum,derde,pluralis,supinum
+us eram,4,indicativus,plusquamperfectum,passivum,eerste,singularis,supinum
+us eras,4,indicativus,plusquamperfectum,passivum,tweede,singularis,supinum
+us erat,4,indicativus,plusquamperfectum,passivum,derde,singularis,supinum
+i eramus,4,indicativus,plusquamperfectum,passivum,eerste,pluralis,supinum
+i eratis,4,indicativus,plusquamperfectum,passivum,tweede,pluralis,supinum
+i erant,4,indicativus,plusquamperfectum,passivum,derde,pluralis,supinum
+us ero,4,indicativus,futurum exactum,passivum,eerste,singularis,supinum
+us eris,4,indicativus,futurum exactum,passivum,tweede,singularis,supinum
+us erit,4,indicativus,futurum exactum,passivum,derde,singularis,supinum
+i erimus,4,indicativus,futurum exactum,passivum,eerste,pluralis,supinum
+i eritis,4,indicativus,futurum exactum,passivum,tweede,pluralis,supinum
+i erunt,4,indicativus,futurum exactum,passivum,derde,pluralis,supinum
+am,4,coniunctivus,praesens,activum,eerste,singularis,praesens
+as,4,coniunctivus,praesens,activum,tweede,singularis,praesens
+at,4,coniunctivus,praesens,activum,derde,singularis,praesens
+amus,4,coniunctivus,praesens,activum,eerste,pluralis,praesens
+atis,4,coniunctivus,praesens,activum,tweede,pluralis,praesens
+ant,4,coniunctivus,praesens,activum,derde,pluralis,praesens
+rem,4,coniunctivus,imperfectum,activum,eerste,singularis,praesens
+res,4,coniunctivus,imperfectum,activum,tweede,singularis,praesens
+ret,4,coniunctivus,imperfectum,activum,derde,singularis,praesens
+remus,4,coniunctivus,imperfectum,activum,eerste,pluralis,praesens
+retis,4,coniunctivus,imperfectum,activum,tweede,pluralis,praesens
+rent,4,coniunctivus,imperfectum,activum,derde,pluralis,praesens
+erim,4,coniunctivus,perfectum,activum,eerste,singularis,perfectum
+eris,4,coniunctivus,perfectum,activum,tweede,singularis,perfectum
+erit,4,coniunctivus,perfectum,activum,derde,singularis,perfectum
+erimus,4,coniunctivus,perfectum,activum,eerste,pluralis,perfectum
+eritis,4,coniunctivus,perfectum,activum,tweede,pluralis,perfectum
+erint,4,coniunctivus,perfectum,activum,derde,pluralis,perfectum
+issem,4,coniunctivus,plusquamperfectum,activum,eerste,singularis,perfectum
+isses,4,coniunctivus,plusquamperfectum,activum,tweede,singularis,perfectum
+isset,4,coniunctivus,plusquamperfectum,activum,derde,singularis,perfectum
+issemus,4,coniunctivus,plusquamperfectum,activum,eerste,pluralis,perfectum
+issetis,4,coniunctivus,plusquamperfectum,activum,tweede,pluralis,perfectum
+issent,4,coniunctivus,plusquamperfectum,activum,derde,pluralis,perfectum
+ar,4,coniunctivus,praesens,passivum,eerste,singularis,praesens
+aris,4,coniunctivus,praesens,passivum,tweede,singularis,praesens
+atur,4,coniunctivus,praesens,passivum,derde,singularis,praesens
+amus,4,coniunctivus,praesens,passivum,eerste,pluralis,praesens
+amini,4,coniunctivus,praesens,passivum,tweede,pluralis,praesens
+antur,4,coniunctivus,praesens,passivum,derde,pluralis,praesens
+rer,4,coniunctivus,imperfectum,passivum,eerste,singularis,praesens
+reris,4,coniunctivus,imperfectum,passivum,tweede,singularis,praesens
+retur,4,coniunctivus,imperfectum,passivum,derde,singularis,praesens
+remur,4,coniunctivus,imperfectum,passivum,eerste,pluralis,praesens
+remini,4,coniunctivus,imperfectum,passivum,tweede,pluralis,praesens
+rentur,4,coniunctivus,imperfectum,passivum,derde,pluralis,praesens
+us sim,4,coniunctivus,perfectum,passivum,eerste,singularis,supinum
+us sis,4,coniunctivus,perfectum,passivum,tweede,singularis,supinum
+us sit,4,coniunctivus,perfectum,passivum,derde,singularis,supinum
+i simus,4,coniunctivus,perfectum,passivum,eerste,pluralis,supinum
+i sitis,4,coniunctivus,perfectum,passivum,tweede,pluralis,supinum
+i sint,4,coniunctivus,perfectum,passivum,derde,pluralis,supinum
+us essem,4,coniunctivus,plusquamperfectum,passivum,eerste,singularis,supinum
+us esses,4,coniunctivus,plusquamperfectum,passivum,tweede,singularis,supinum
+us esset,4,coniunctivus,plusquamperfectum,passivum,derde,singularis,supinum
+i essemus,4,coniunctivus,plusquamperfectum,passivum,eerste,pluralis,supinum
+i essetis,4,coniunctivus,plusquamperfectum,passivum,tweede,pluralis,supinum
+i essent,4,coniunctivus,plusquamperfectum,passivum,derde,pluralis,supinum
+,4,imperativus,praesens,activum,tweede,singularis,praesens
+te,4,imperativus,praesens,activum,tweede,pluralis,praesens
+ens,4,participium,praesens,activum,,singularis,infinitivus
+us,4,participium,perfectum,passivum,,singularis,supinum
+urus,4,participium,futurum,activum,,singularis,supinum
+re,4,infinitivus,praesens,activum,,,infinitivus
+isse,4,infinitivus,perfectum,activum,,,perfectum
+urus esse,4,infinitivus,futurum,activum,,,supinum
+ri,4,infinitivus,praesens,passivum,,,infinitivus
+us esse,4,infinitivus,perfectum,passivum,,,supinum
+um iri,4,infinitivus,futurum,passivum,,,supinum

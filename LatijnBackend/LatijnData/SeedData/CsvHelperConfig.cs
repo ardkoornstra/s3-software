@@ -12,5 +12,14 @@ namespace LatijnData.SeedData
             AutoMap(CultureInfo.InvariantCulture);
             Map(m => m.WoordID).Ignore();
         }
-    }    
+    }
+
+    public sealed class VervoegingMap : ClassMap<VervoegingEF>
+    {
+        public VervoegingMap()
+        {
+            AutoMap(CultureInfo.InvariantCulture);
+            Map(m => m.VervoegingID).Ignore();
+        }
+    }
 }

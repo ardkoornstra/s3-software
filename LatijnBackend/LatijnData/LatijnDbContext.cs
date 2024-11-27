@@ -10,6 +10,7 @@ namespace LatijnData
     {
         public LatijnDbContext(DbContextOptions<LatijnDbContext> options) : base(options) {
             SeedWerkwoorden();
+            SeedVervoegingen();
         }
 
         public void SeedWerkwoorden()
@@ -17,7 +18,8 @@ namespace LatijnData
             if (Werkwoorden.Any()) { return; }
 
             List<WerkwoordEF> seedList;
-            using (var reader = new StreamReader("SeedData\\Werkwoorden.csv"))
+            string file = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "Werkwoorden.csv");
+            using (var reader = new StreamReader(file))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
                 csv.Context.RegisterClassMap<WerkwoordMap>();
@@ -30,7 +32,23 @@ namespace LatijnData
 
         public void SeedVervoegingen()
         {
+            if (Vervoegingen.Any()) { return; }
 
+            List<VervoegingEF> seedList;
+            for (int i = 0; i<4; i++)
+            {
+                string file = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "Vervoegingen" + (i + 1) + ".csv");
+                using (var reader = new StreamReader(file))
+                using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+                {
+                    csv.Context.RegisterClassMap<VervoegingMap>();
+                    var seedData = csv.GetRecords<VervoegingEF>();
+                    seedList = seedData.ToList();
+                }
+                Vervoegingen.AddRange(seedList);
+                SaveChanges();
+            }
+            
         }
 
         public DbSet<WerkwoordEF> Werkwoorden { get; set; }
