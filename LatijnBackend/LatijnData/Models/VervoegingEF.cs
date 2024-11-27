@@ -8,6 +8,7 @@ namespace LatijnData.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int VervoegingID { get; set; }
+        public int Conjugatie { get; set; }
         public required string Vorm { get; set; }
         public required string Modus { get; set; }
         public required string Tempus { get; set; }
