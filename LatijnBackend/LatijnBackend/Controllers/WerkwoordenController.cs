@@ -2,8 +2,6 @@
 using LatijnLogic.Types;
 using LatijnLogic.Interfaces;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace LatijnAPI.Controllers
 {
     [Route("api/[controller]")]
@@ -17,20 +15,12 @@ namespace LatijnAPI.Controllers
             _logic = logic;
         }
 
-
-        // GET: api/<WerkwoordenController>
+        // GET alle Werkwoorden
         [HttpGet]
         public async Task<List<Werkwoord>> Get()
         {
             List<Werkwoord> werkwoorden = await _logic.GetAllWerkwoorden();
             return werkwoorden;
-        }
-
-        // GET api/<WerkwoordenController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
         }
     }
 }

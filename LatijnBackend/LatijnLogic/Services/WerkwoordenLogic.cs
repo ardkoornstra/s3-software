@@ -1,20 +1,20 @@
 ﻿using LatijnLogic.Types;
 using LatijnLogic.Interfaces;
 
-namespace LatijnLogic
+namespace LatijnLogic.Services
 {
     public class WerkwoordenLogic : IWerkwoordenLogic
     {
-        private readonly IWerkwoordenData _dataAccess;
+        private readonly IWerkwoordenData _data;
 
-        public WerkwoordenLogic(IWerkwoordenData dataAccess)
+        public WerkwoordenLogic(IWerkwoordenData data)
         {
-            _dataAccess = dataAccess;
+            _data = data;
         }
 
         public async Task<List<Werkwoord>> GetAllWerkwoorden()
         {
-            return await _dataAccess.GetAllWerkwoorden();
+            return await _data.GetAllWerkwoorden();
         }
     }
 }

@@ -8,6 +8,7 @@ namespace LatijnData
     {
         public AutoMapperProfile() {
             CreateMap<WerkwoordEF, Werkwoord>();
+            CreateMap<VervoegingEF, Vervoeging>();
         }
     }
 }

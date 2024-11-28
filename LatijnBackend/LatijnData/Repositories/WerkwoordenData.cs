@@ -4,7 +4,7 @@ using LatijnLogic.Interfaces;
 using LatijnLogic.Types;
 using Microsoft.EntityFrameworkCore;
 
-namespace LatijnData
+namespace LatijnData.Repositories
 {
     public class WerkwoordenData : IWerkwoordenData
     {
