@@ -22,12 +22,5 @@ namespace LatijnAPI.Controllers
             List<Uitgang> Uitgangen = await _logic.GetAllUitgangen();
             return Uitgangen;
         }
-
-        //GET lijst met vervoegde vormen
-        //[HttpGet("Vormen")]
-        //public async Task<List<Vorm>> GetVormen()
-        //{
-        //    return new List<Vorm>();
-        //}
     }
 }

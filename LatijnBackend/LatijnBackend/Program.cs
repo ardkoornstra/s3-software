@@ -2,6 +2,7 @@ using LatijnData;
 using LatijnData.Repositories;
 using LatijnLogic.Interfaces;
 using LatijnLogic.Services;
+using LatijnLogic.Utility;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -29,8 +30,10 @@ builder.Services.AddSwaggerGen();
 //Dependencies
 builder.Services.AddScoped<IWerkwoordenLogic, WerkwoordenLogic>();
 builder.Services.AddScoped<IUitgangenLogic, UitgangenLogic>();
+builder.Services.AddScoped<IVervoegingenLogic, VervoegingenLogic>();
 builder.Services.AddScoped<IWerkwoordenData, WerkwoordenData>();
 builder.Services.AddScoped<IUitgangenData, UitgangenData>();
+builder.Services.AddScoped<IRandomNumbers, RandomNumbers>();
 
 var app = builder.Build();
 

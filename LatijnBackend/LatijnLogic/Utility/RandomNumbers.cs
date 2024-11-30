@@ -1,7 +1,8 @@
-﻿
+﻿using LatijnLogic.Interfaces;
+
 namespace LatijnLogic.Utility
 {
-    public class RandomNumbers
+    public class RandomNumbers : IRandomNumbers
     {
         public RandomNumbers() { }
 
