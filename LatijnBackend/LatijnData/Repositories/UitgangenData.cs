@@ -23,5 +23,12 @@ namespace LatijnData.Repositories
             List<Uitgang> Uitgangen = _mapper.Map<List<Uitgang>>(UitgangenEF);
             return Uitgangen;
         }
+
+        public async Task<List<Uitgang>> GetUitgangen(List<int> uitgangenIDs)
+        {
+            List<UitgangEF> UitgangenEF = await _dbContext.Uitgangen.Where(u => (uitgangenIDs.Contains(u.UitgangID))).ToListAsync();
+            List<Uitgang> Uitgangen = _mapper.Map<List<Uitgang>>(UitgangenEF);
+            return Uitgangen;
+        }
     }
 }

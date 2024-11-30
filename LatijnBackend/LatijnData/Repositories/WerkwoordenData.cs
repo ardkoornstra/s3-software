@@ -23,5 +23,12 @@ namespace LatijnData.Repositories
             List<Werkwoord> werkwoorden = _mapper.Map<List<Werkwoord>>(werkwoordenEF);
             return werkwoorden;
         }
+
+        public async Task<List<Werkwoord>> GetWerkwoorden(List<int> werkwoordenIDs)
+        {
+            List<WerkwoordEF> werkwoordenEF = await _dbContext.Werkwoorden.Where(w => (werkwoordenIDs.Contains(w.WoordID))).ToListAsync();
+            List<Werkwoord> werkwoorden = _mapper.Map<List<Werkwoord>>(werkwoordenEF);
+            return werkwoorden;
+        }
     }
 }

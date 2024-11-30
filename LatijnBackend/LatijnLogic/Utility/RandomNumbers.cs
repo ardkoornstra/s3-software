@@ -1,4 +1,5 @@
 ﻿using LatijnLogic.Interfaces;
+using LatijnLogic.Types;
 
 namespace LatijnLogic.Utility
 {
@@ -15,11 +16,27 @@ namespace LatijnLogic.Utility
             {
                 do
                 {
-                    newNumber = random.Next(totalAmount);
+                    newNumber = random.Next(totalAmount) + 1;
                 } while (randomNumbers.Contains(newNumber));
                 randomNumbers.Add(newNumber);
             }
             return randomNumbers;
+        }
+
+        private Random rng = new Random();
+
+        public List<Vervoeging> ShuffleVervoegingen(List<Vervoeging> list)
+        {
+            int n = list.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = rng.Next(n + 1);
+                Vervoeging value = list[k];
+                list[k] = list[n];
+                list[n] = value;
+            }
+            return list;
         }
     }
 }
