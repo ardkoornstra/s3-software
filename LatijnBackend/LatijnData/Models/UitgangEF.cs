@@ -3,11 +3,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace LatijnData.Models
 {
-    public class VervoegingEF
+    public class UitgangEF
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int VervoegingID { get; set; }
+        public int UitgangID { get; set; }
         public int Conjugatie { get; set; }
         public required string Vorm { get; set; }
         public required string Modus { get; set; }

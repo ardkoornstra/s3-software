@@ -14,12 +14,12 @@ namespace LatijnData.SeedData
         }
     }
 
-    public sealed class VervoegingMap : ClassMap<VervoegingEF>
+    public sealed class UitgangMap : ClassMap<UitgangEF>
     {
-        public VervoegingMap()
+        public UitgangMap()
         {
             AutoMap(CultureInfo.InvariantCulture);
-            Map(m => m.VervoegingID).Ignore();
+            Map(m => m.UitgangID).Ignore();
         }
     }
 }

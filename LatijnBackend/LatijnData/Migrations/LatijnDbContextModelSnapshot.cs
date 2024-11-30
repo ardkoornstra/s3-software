@@ -21,13 +21,13 @@ namespace LatijnData.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("LatijnData.Models.VervoegingEF", b =>
+            modelBuilder.Entity("LatijnData.Models.UitgangEF", b =>
                 {
-                    b.Property<int>("VervoegingID")
+                    b.Property<int>("UitgangID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("VervoegingID"));
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("UitgangID"));
 
                     b.Property<int>("Conjugatie")
                         .HasColumnType("int");
@@ -60,9 +60,9 @@ namespace LatijnData.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.HasKey("VervoegingID");
+                    b.HasKey("UitgangID");
 
-                    b.ToTable("Vervoegingen");
+                    b.ToTable("Uitgangen");
                 });
 
             modelBuilder.Entity("LatijnData.Models.WerkwoordEF", b =>

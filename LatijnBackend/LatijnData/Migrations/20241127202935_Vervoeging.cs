@@ -6,16 +6,16 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace LatijnData.Migrations
 {
     /// <inheritdoc />
-    public partial class Vervoeging : Migration
+    public partial class Uitgang : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Vervoegingen",
+                name: "Uitgangen",
                 columns: table => new
                 {
-                    VervoegingID = table.Column<int>(type: "int", nullable: false)
+                    UitgangID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Conjugatie = table.Column<int>(type: "int", nullable: false),
                     Vorm = table.Column<string>(type: "longtext", nullable: false)
@@ -35,7 +35,7 @@ namespace LatijnData.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Vervoegingen", x => x.VervoegingID);
+                    table.PrimaryKey("PK_Uitgangen", x => x.UitgangID);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
         }
@@ -44,7 +44,7 @@ namespace LatijnData.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Vervoegingen");
+                name: "Uitgangen");
         }
     }
 }

@@ -10,7 +10,7 @@ namespace LatijnData
     {
         public LatijnDbContext(DbContextOptions<LatijnDbContext> options) : base(options) {
             SeedWerkwoorden();
-            SeedVervoegingen();
+            SeedUitgangen();
         }
 
         public void SeedWerkwoorden()
@@ -30,28 +30,28 @@ namespace LatijnData
             SaveChanges();            
         }
 
-        public void SeedVervoegingen()
+        public void SeedUitgangen()
         {
-            if (Vervoegingen.Any()) { return; }
+            if (Uitgangen.Any()) { return; }
 
-            List<VervoegingEF> seedList;
+            List<UitgangEF> seedList;
             for (int i = 0; i<4; i++)
             {
-                string file = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "Vervoegingen" + (i + 1) + ".csv");
+                string file = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "Uitgangen" + (i + 1) + ".csv");
                 using (var reader = new StreamReader(file))
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
-                    csv.Context.RegisterClassMap<VervoegingMap>();
-                    var seedData = csv.GetRecords<VervoegingEF>();
+                    csv.Context.RegisterClassMap<UitgangMap>();
+                    var seedData = csv.GetRecords<UitgangEF>();
                     seedList = seedData.ToList();
                 }
-                Vervoegingen.AddRange(seedList);
+                Uitgangen.AddRange(seedList);
                 SaveChanges();
             }
             
         }
 
         public DbSet<WerkwoordEF> Werkwoorden { get; set; }
-        public DbSet<VervoegingEF> Vervoegingen { get; set; }
+        public DbSet<UitgangEF> Uitgangen { get; set; }
     }
 }

@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LatijnData.Migrations
 {
     [DbContext(typeof(LatijnDbContext))]
-    [Migration("20241127202935_Uitgang")]
-    partial class Uitgang
+    [Migration("20241130153213_Uitgangen")]
+    partial class Uitgangen
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

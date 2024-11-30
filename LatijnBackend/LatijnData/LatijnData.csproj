@@ -7,10 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="SeedData\Vervoegingen1.csv" />
-    <None Remove="SeedData\Vervoegingen2.csv" />
-    <None Remove="SeedData\Vervoegingen3.csv" />
-    <None Remove="SeedData\Vervoegingen4.csv" />
+    <None Remove="SeedData\Uitgangen1.csv" />
+    <None Remove="SeedData\Uitgangen2.csv" />
+    <None Remove="SeedData\Uitgangen3.csv" />
+    <None Remove="SeedData\Uitgangen4.csv" />
     <None Remove="SeedData\Werkwoorden.csv" />
   </ItemGroup>
 
@@ -31,18 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="SeedData\Vervoegingen1.csv">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="SeedData\Vervoegingen2.csv">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="SeedData\Vervoegingen3.csv">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="SeedData\Vervoegingen4.csv">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
     <ApplicationDefinition Include="SeedData\Werkwoorden.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </ApplicationDefinition>

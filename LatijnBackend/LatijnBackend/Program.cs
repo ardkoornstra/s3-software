@@ -28,9 +28,9 @@ builder.Services.AddSwaggerGen();
 
 //Dependencies
 builder.Services.AddScoped<IWerkwoordenLogic, WerkwoordenLogic>();
-builder.Services.AddScoped<IVervoegingenLogic, VervoegingenLogic>();
+builder.Services.AddScoped<IUitgangenLogic, UitgangenLogic>();
 builder.Services.AddScoped<IWerkwoordenData, WerkwoordenData>();
-builder.Services.AddScoped<IVervoegingenData, VervoegingenData>();
+builder.Services.AddScoped<IUitgangenData, UitgangenData>();
 
 var app = builder.Build();
 

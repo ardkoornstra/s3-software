@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LatijnLogic.Types
 {
-    public class Vervoeging
+    public class Uitgang
     {
-        public int VervoegingID { get; set; }
+        public int UitgangID { get; set; }
         public int Conjugatie { get; set; }
         public required string Vorm { get; set; }
         public required string Modus { get; set; }
