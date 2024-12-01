@@ -8,7 +8,7 @@ export default function Woordenlijst() {
   useEffect(() => {
     if (!woordenlijst) {
       try {
-        fetch("https://localhost:7125/api/Werkwoorden/All")
+        fetch("https://localhost:7125/api/Werkwoorden")
           .then((res) => res.json())
           .then((data) => setWoordenlijst(data));
       } catch (error) {
