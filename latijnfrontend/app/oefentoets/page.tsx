@@ -1,40 +1,44 @@
 "use client";
 
-import { Box, Flex, Section } from "@radix-ui/themes";
-import VraagNr from "../components/toets/vraagnr";
-import { useState } from "react";
-import AantalGoed from "../components/toets/aantalgoed";
-import Vorm from "../components/toets/vorm";
-import AntwoordInput from "../components/toets/antwoordinput";
+import { ThickArrowRightIcon } from "@radix-ui/react-icons";
+import {
+  Heading,
+  Section,
+  Text,
+  RadioGroup,
+  Flex,
+  Button,
+} from "@radix-ui/themes";
+import Link from "next/link";
 
 export default function Oefentoets() {
-  const [nummer, setNummer] = useState<number>(0);
-  const [totaal, setTotaal] = useState<number>(0);
-  const [aantal, setAantal] = useState<number>(0);
-
-  const nieuwevorm: Werkwoordsvorm = {
-    vorm: "Terramus",
-    infinitivus: "terrere",
-    praesens: "terreo",
-    perfectum: "terrui",
-    supinum: "territum",
-    betekenis: "bang maken",
-  };
+  function HandleStart() {}
 
   return (
     <>
       <Section size={"1"}>
-        <Flex justify={"between"} p={"3"}>
-          <Box>
-            <VraagNr nummer={nummer} totaal={totaal} />
-          </Box>
-          <Box>
-            <AantalGoed aantal={aantal} />
-          </Box>
-        </Flex>
-        <Vorm werkwoordsvorm={nieuwevorm} />
+        <Heading align={"center"} size={"9"}>
+          Oefentoets starten
+        </Heading>
+        <Text>Kies je niveau</Text>
       </Section>
-      <AntwoordInput werkwoordsvorm={nieuwevorm} />
+      <RadioGroup.Root defaultValue="3" name="niveau">
+        <RadioGroup.Item value="1" disabled>
+          Niveau 1
+        </RadioGroup.Item>
+        <RadioGroup.Item value="2" disabled>
+          Niveau 2
+        </RadioGroup.Item>
+        <RadioGroup.Item value="3">Niveau 3 - Alle vormen</RadioGroup.Item>
+      </RadioGroup.Root>
+      <Flex justify={"end"}>
+        <Link href={"/vraag"}>
+          <Button onClick={HandleStart} size={"3"}>
+            <ThickArrowRightIcon />
+            Start
+          </Button>
+        </Link>
+      </Flex>
     </>
   );
 }

@@ -14,8 +14,8 @@ export default function Vorm(props: VormProps) {
         {props.werkwoordsvorm.vorm}
       </Heading>
       <Text align={"center"} as="div">
-        {props.werkwoordsvorm.infinitivus},{props.werkwoordsvorm.praesens},
-        {props.werkwoordsvorm.perfectum},{props.werkwoordsvorm.supinum}
+        {props.werkwoordsvorm.infinitivus}, {props.werkwoordsvorm.praesens},{" "}
+        {props.werkwoordsvorm.perfectum}, {props.werkwoordsvorm.supinum}
       </Text>
       <Text align={"center"} as="div">
         {props.werkwoordsvorm.betekenis}
