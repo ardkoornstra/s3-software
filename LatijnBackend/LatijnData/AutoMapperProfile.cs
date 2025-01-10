@@ -9,6 +9,9 @@ namespace LatijnData
         public AutoMapperProfile() {
             CreateMap<WerkwoordEF, Werkwoord>();
             CreateMap<UitgangEF, Uitgang>();
+            CreateMap<VervoegingEF, Vervoeging>();
+            CreateMap<ToetsEF, Toets>();
+            CreateMap<KlasEF, Klas>();
         }
     }
 }

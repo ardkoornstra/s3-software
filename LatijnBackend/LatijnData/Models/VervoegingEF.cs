@@ -1,10 +1,16 @@
-﻿namespace LatijnLogic.Types
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
+namespace LatijnData.Models
 {
-    public class Vervoeging
+    public class VervoegingEF
     {
-        public int Id { get; set; }
-        public bool IsCorrect { get; set; }
-        
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public required int Id { get; set; }
+        public required int ToetsId { get; set; }
+        public required bool IsCorrect { get; set; } = false;
+
         public required string Vorm { get; set; }
         public required string Modus { get; set; }
         public required string Tempus { get; set; }

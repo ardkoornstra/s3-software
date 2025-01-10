@@ -16,9 +16,6 @@ import AntwoordInput from "../components/toets/antwoordinput";
 import { CheckCircledIcon } from "@radix-ui/react-icons";
 
 export default function Vraag() {
-  const [index, setIndex] = useState<number>(0);
-  const totaal: number = 5;
-  const [aantal, setAantal] = useState<number>(0);
   const [vervoegingen, setVervoegingen] = useState<Werkwoordsvorm[]>();
   const [correct, setCorrect] = useState<boolean>(false);
 
