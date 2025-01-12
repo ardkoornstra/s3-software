@@ -1,4 +1,4 @@
-﻿namespace LatijnAPI.DTOs
+﻿namespace LatijnLogic.DTOs
 {
     public class VraagDTO
     {

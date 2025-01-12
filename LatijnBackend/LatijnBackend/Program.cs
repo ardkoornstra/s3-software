@@ -1,3 +1,4 @@
+using LatijnAPI;
 using LatijnData;
 using LatijnData.Repositories;
 using LatijnLogic.Interfaces;
@@ -31,9 +32,12 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IWerkwoordenLogic, WerkwoordenLogic>();
 builder.Services.AddScoped<IUitgangenLogic, UitgangenLogic>();
 builder.Services.AddScoped<IVervoegingenLogic, VervoegingenLogic>();
+builder.Services.AddScoped<IToetsenLogic, ToetsenLogic>();
 builder.Services.AddScoped<IWerkwoordenData, WerkwoordenData>();
 builder.Services.AddScoped<IUitgangenData, UitgangenData>();
+builder.Services.AddScoped<IToetsenData, ToetsenData>();
 builder.Services.AddScoped<IRandomNumbers, RandomNumbers>();
+
 
 var app = builder.Build();
 

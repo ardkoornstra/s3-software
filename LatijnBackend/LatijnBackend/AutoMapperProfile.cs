@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
 using LatijnData.Models;
+using LatijnLogic.DTOs;
 using LatijnLogic.Types;
 
-namespace LatijnData
+namespace LatijnAPI
 {
     public class AutoMapperProfile : Profile
     {
@@ -12,6 +13,7 @@ namespace LatijnData
             CreateMap<VervoegingEF, Vervoeging>();
             CreateMap<ToetsEF, Toets>();
             CreateMap<KlasEF, Klas>();
+            CreateMap<ToetsDTO, ToetsEF>();
         }
     }
 }
