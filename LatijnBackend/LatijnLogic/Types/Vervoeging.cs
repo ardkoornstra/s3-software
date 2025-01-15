@@ -3,7 +3,8 @@
     public class Vervoeging
     {
         public int Id { get; set; }
-        public bool IsCorrect { get; set; }
+        public required int ToetsId { get; set; }
+        public required bool IsCorrect { get; set; }
         
         public required string Vorm { get; set; }
         public required string Modus { get; set; }

@@ -11,6 +11,7 @@ namespace LatijnAPI
             CreateMap<WerkwoordEF, Werkwoord>();
             CreateMap<UitgangEF, Uitgang>();
             CreateMap<VervoegingEF, Vervoeging>();
+            CreateMap<Vervoeging, VervoegingEF>();
             CreateMap<ToetsEF, Toets>();
             CreateMap<SessionEF, Session>();
             CreateMap<ToetsDTO, ToetsEF>();

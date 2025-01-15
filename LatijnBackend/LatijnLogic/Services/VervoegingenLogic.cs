@@ -8,18 +8,20 @@ namespace LatijnLogic.Services
         private readonly IUitgangenData _uitgangenData;
         private readonly IWerkwoordenData _werkwoordenData;
         private readonly IRandomNumbers _random;
+        private readonly IVervoegingenData _vervoegingenData;
 
         private readonly int nrOfWerkwoorden = 79;
         private readonly int nrOfUitgangen = 131;
 
-        public VervoegingenLogic(IUitgangenData uitgangenData, IWerkwoordenData werkwoordenData, IRandomNumbers random)
+        public VervoegingenLogic(IUitgangenData uitgangenData, IWerkwoordenData werkwoordenData, IRandomNumbers random, IVervoegingenData vervoegingenData)
         {
             _uitgangenData = uitgangenData;
             _werkwoordenData = werkwoordenData;
             _random = random;
+            _vervoegingenData = vervoegingenData;
         }
 
-        public async Task<List<Vervoeging>> GetVervoegingen(int amount)
+        public async Task<bool> CreateVervoegingen(int amount, int toetsId)
         {
             List<int> randomWerkwoordenIDs = _random.GenerateNRandomNumbers(nrOfWerkwoorden, amount);
             List<int> randomUitgangenIDs = _random.GenerateNRandomNumbers(nrOfUitgangen, amount);
@@ -32,9 +34,11 @@ namespace LatijnLogic.Services
 
             List<string> vormen = Vervoeg(randomWerkwoorden, randomUitgangen);
 
-            List<Vervoeging> vervoegingen = CreateVervoegingen(vormen, randomUitgangen, randomWerkwoorden);
+            List<Vervoeging> vervoegingen = CreateVervoegingenList(vormen, randomUitgangen, randomWerkwoorden, toetsId);
 
-            return vervoegingen;
+            List<Vervoeging> shuffledVervoegingen = _random.ShuffleVervoegingen(vervoegingen);
+
+            return await _vervoegingenData.CreateVervoegingen(shuffledVervoegingen);
         }
 
         private List<int> AdjustConjugatie(List<Werkwoord> werkwoorden, List<int> uitgangenIDs)
@@ -78,13 +82,15 @@ namespace LatijnLogic.Services
             return vormen;
         }
 
-        private List<Vervoeging> CreateVervoegingen(List<string> vormen, List<Uitgang> uitgangen, List<Werkwoord> werkwoorden)
+        private List<Vervoeging> CreateVervoegingenList(List<string> vormen, List<Uitgang> uitgangen, List<Werkwoord> werkwoorden, int toetsId)
         {
             List<Vervoeging> vervoegingen = new List<Vervoeging>();
             for (int i = 0; i < vormen.Count; i++)
             {
                 Vervoeging vervoeging = new Vervoeging
                 {
+                    ToetsId = toetsId,
+                    IsCorrect = false,
                     Vorm = vormen[i],
                     Modus = uitgangen[i].Modus,
                     Tempus = uitgangen[i].Tempus,
@@ -101,9 +107,8 @@ namespace LatijnLogic.Services
                 };
                 vervoegingen.Add(vervoeging);
             }
-            List<Vervoeging> newVervoegingen = _random.ShuffleVervoegingen(vervoegingen);
-
-            return newVervoegingen;
+            
+            return vervoegingen;
         }
     }
 }

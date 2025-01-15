@@ -22,8 +22,7 @@ namespace LatijnAPI.Controllers
 
         [HttpPost]
         public async Task<int> CreateToets(ToetsDTO toetsDTO)
-        {
-            
+        {            
             int Id = await _logic.CreateToets(toetsDTO);
             return Id;
         }

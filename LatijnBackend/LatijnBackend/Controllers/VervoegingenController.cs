@@ -16,11 +16,6 @@ namespace LatijnAPI.Controllers
             _logic = logic;
         }
 
-        [HttpGet]
-        public async Task<List<Vervoeging>> Get(int amount)
-        {
-            List<Vervoeging> vervoegingen = await _logic.GetVervoegingen(amount);
-            return vervoegingen;
-        }
+        
     }
 }

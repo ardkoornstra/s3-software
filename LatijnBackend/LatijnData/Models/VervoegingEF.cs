@@ -9,7 +9,7 @@ namespace LatijnData.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public required int Id { get; set; }
         public required int ToetsId { get; set; }
-        public required bool IsCorrect { get; set; } = false;
+        public required bool IsCorrect { get; set; }
 
         public required string Vorm { get; set; }
         public required string Modus { get; set; }
