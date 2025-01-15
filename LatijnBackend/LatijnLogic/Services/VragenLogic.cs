@@ -38,18 +38,19 @@ namespace LatijnLogic.Services
         public async Task<bool> SubmitAntwoord(AntwoordDTO antwoordDTO)
         {
             Vervoeging vervoeging = await _data.GetVervoeging(antwoordDTO.Id);
-
+            bool isCorrect = false;
             if (antwoordDTO.Modus == vervoeging.Modus &&
                 antwoordDTO.Tempus == vervoeging.Tempus &&
                 antwoordDTO.Genus == vervoeging.Genus &&
                 antwoordDTO.Persoon == vervoeging.Persoon &&
                 antwoordDTO.Getal == vervoeging.Getal)
             {
-                return true;
+                isCorrect = true;
             } else
             {
-                return false;
+                isCorrect = false;
             }
+            return await _data.UpdateIsCorrect(antwoordDTO.Id, isCorrect);
         }
     }
 }

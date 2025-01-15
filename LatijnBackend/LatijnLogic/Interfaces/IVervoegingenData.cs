@@ -8,5 +8,6 @@ namespace LatijnLogic.Interfaces
         public Task<Vervoeging> GetVervoeging(int Id);
         public Task<List<Vervoeging>> GetVervoegingenByToetsID(int toetsId);
         public Task<bool> CreateVervoegingen(List<Vervoeging> vervoegingen);
+        public Task<bool> UpdateIsCorrect(int Id, bool isCorrect)
     }
 }
