@@ -22,5 +22,11 @@ namespace LatijnAPI.Controllers
         {
             return await _logic.GetVragenByToetsID(toetsId);
         }
+
+        [HttpPost]
+        public async Task<bool> SubmitAntwoord(AntwoordDTO antwoordDTO)
+        {
+            return await _logic.SubmitAntwoord(antwoordDTO);
+        }
     }
 }

@@ -34,5 +34,22 @@ namespace LatijnLogic.Services
 
             return vragen;
         }
+
+        public async Task<bool> SubmitAntwoord(AntwoordDTO antwoordDTO)
+        {
+            Vervoeging vervoeging = await _data.GetVervoeging(antwoordDTO.Id);
+
+            if (antwoordDTO.Modus == vervoeging.Modus &&
+                antwoordDTO.Tempus == vervoeging.Tempus &&
+                antwoordDTO.Genus == vervoeging.Genus &&
+                antwoordDTO.Persoon == vervoeging.Persoon &&
+                antwoordDTO.Getal == vervoeging.Getal)
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
+        }
     }
 }
