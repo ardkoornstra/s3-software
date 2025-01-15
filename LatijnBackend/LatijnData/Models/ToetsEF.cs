@@ -10,7 +10,7 @@ namespace LatijnData.Models
         public required int Id { get; set; }
         public required int AantalVragen { get; set; }
         public required int AantalGoed { get; set; }
-        public required int KlasId { get; set; }
+        public required int SessionId { get; set; }
 
         public required List<VervoegingEF> VervoegingenEF { get; set; }
     }

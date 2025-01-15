@@ -12,7 +12,7 @@ namespace LatijnAPI
             CreateMap<UitgangEF, Uitgang>();
             CreateMap<VervoegingEF, Vervoeging>();
             CreateMap<ToetsEF, Toets>();
-            CreateMap<KlasEF, Klas>();
+            CreateMap<SessionEF, Session>();
             CreateMap<ToetsDTO, ToetsEF>();
         }
     }

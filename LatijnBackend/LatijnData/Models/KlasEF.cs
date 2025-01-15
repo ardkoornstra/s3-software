@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace LatijnData.Models
 {
-    public class KlasEF
+    public class SessionEF
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

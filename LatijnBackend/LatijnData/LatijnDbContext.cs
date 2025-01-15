@@ -55,6 +55,6 @@ namespace LatijnData
         public DbSet<UitgangEF> Uitgangen { get; set; }
         public DbSet<VervoegingEF> Vervoegingen { get; set; }
         public DbSet<ToetsEF> Toetsen { get; set; }
-        public DbSet<KlasEF> Klassen { get; set; }
+        public DbSet<SessionEF> Sessions { get; set; }
     }
 }
