@@ -12,12 +12,10 @@ namespace LatijnAPI.Controllers
     public class ToetsenController : ControllerBase
     {
         private readonly IToetsenLogic _logic;
-        private readonly IMapper _mapper;
 
-        public ToetsenController(IToetsenLogic logic, IMapper mapper)
+        public ToetsenController(IToetsenLogic logic)
         {
             _logic = logic;
-            _mapper = mapper;
         }
 
         [HttpPost]

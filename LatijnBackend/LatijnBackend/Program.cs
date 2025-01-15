@@ -33,6 +33,8 @@ builder.Services.AddScoped<IWerkwoordenLogic, WerkwoordenLogic>();
 builder.Services.AddScoped<IUitgangenLogic, UitgangenLogic>();
 builder.Services.AddScoped<IVervoegingenLogic, VervoegingenLogic>();
 builder.Services.AddScoped<IToetsenLogic, ToetsenLogic>();
+builder.Services.AddScoped<IVragenLogic, VragenLogic>();
+
 builder.Services.AddScoped<IWerkwoordenData, WerkwoordenData>();
 builder.Services.AddScoped<IUitgangenData, UitgangenData>();
 builder.Services.AddScoped<IVervoegingenData, VervoegingenData>();

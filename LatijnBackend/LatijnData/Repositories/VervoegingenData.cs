@@ -24,6 +24,13 @@ namespace LatijnData.Repositories
             return vervoegingen;
         }
 
+        public async Task<List<Vervoeging>> GetVervoegingenByToetsID(int toetsId)
+        {
+            List<VervoegingEF> vervoegingenEF = await _dbContext.Vervoegingen.Where(v => v.ToetsId == toetsId).ToListAsync();
+            List<Vervoeging> vervoegingen = _mapper.Map<List<Vervoeging>>(vervoegingenEF);
+            return vervoegingen;
+        }
+
         public async Task<bool> CreateVervoegingen(List<Vervoeging> vervoegingen)
         {
             List<VervoegingEF> vervoegingenEF = _mapper.Map<List<VervoegingEF>>(vervoegingen);

@@ -8,6 +8,7 @@ namespace LatijnData.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public required int Id { get; set; }
+        public required string? Name { get; set; }
         public required int AantalVragen { get; set; }
         public required int AantalGoed { get; set; }
         public required int SessionId { get; set; }
