@@ -4,6 +4,7 @@ namespace LatijnLogic.Interfaces
 {
     public interface IToetsenLogic
     {
-        public Task<int> CreateToets(ToetsDTO toetsDTO);
+        public Task<ToetsDTO> GetToets(int id);
+        public Task<int> CreateToets(ToetsDTO toetsDTO);        
     }
 }

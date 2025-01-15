@@ -46,10 +46,11 @@ namespace LatijnData.Repositories
             return true;
         }
 
-        public async Task<bool> UpdateIsCorrect(int Id, bool isCorrect)
+        public async Task<bool> UpdateIsCorrect(int id, bool isCorrect)
         {
-            VervoegingEF vervoeging = await _dbContext.Vervoegingen.FindAsync(Id);
+            VervoegingEF vervoeging = await _dbContext.Vervoegingen.Include(v => v.Toets).FirstOrDefaultAsync(v => v.Id == id);
             vervoeging.IsCorrect = isCorrect;
+            vervoeging.Toets.AantalGoed++;
             await _dbContext.SaveChangesAsync();
             return vervoeging.IsCorrect;
         }

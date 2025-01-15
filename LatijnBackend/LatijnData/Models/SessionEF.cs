@@ -10,6 +10,6 @@ namespace LatijnData.Models
         public required int Id { get; set; }
         public required int DocentId { get; set; }
 
-        public List<ToetsEF> ToetsenEF { get; set; }
+        public List<ToetsEF> ToetsenEF { get; set; } = new List<ToetsEF>();
     }
 }

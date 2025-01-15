@@ -1,6 +1,4 @@
-﻿
-
-using LatijnLogic.DTOs;
+﻿using LatijnLogic.DTOs;
 
 namespace LatijnLogic.Interfaces
 {

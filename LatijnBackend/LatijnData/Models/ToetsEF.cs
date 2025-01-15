@@ -11,8 +11,10 @@ namespace LatijnData.Models
         public required string? Name { get; set; }
         public required int AantalVragen { get; set; }
         public required int AantalGoed { get; set; }
-        public required int SessionId { get; set; }
 
-        public required List<VervoegingEF> VervoegingenEF { get; set; }
+        public SessionEF? Session { get; set; }
+        public int? SessionId { get; set; }
+
+        public required List<VervoegingEF> VervoegingenEF { get; set; } = new List<VervoegingEF>();
     }
 }

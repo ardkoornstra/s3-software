@@ -18,6 +18,12 @@ namespace LatijnAPI.Controllers
             _logic = logic;
         }
 
+        [HttpGet]
+        public async Task<ToetsDTO> GetToets(int id)
+        {
+            return await _logic.GetToets(id);
+        }
+
         [HttpPost]
         public async Task<int> CreateToets(ToetsDTO toetsDTO)
         {            

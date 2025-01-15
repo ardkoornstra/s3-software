@@ -25,6 +25,13 @@ namespace LatijnData.Repositories
             return Toetsen;
         }
 
+        public async Task<ToetsDTO> GetToets(int id)
+        {
+            ToetsEF toetsEF = await _dbContext.Toetsen.FindAsync(id);
+            ToetsDTO toetsDTO = _mapper.Map<ToetsDTO>(toetsEF);
+            return toetsDTO;
+        }
+
         public async Task<int> CreateToets(ToetsDTO toetsDTO)
         {
             ToetsEF toets = _mapper.Map<ToetsEF>(toetsDTO);

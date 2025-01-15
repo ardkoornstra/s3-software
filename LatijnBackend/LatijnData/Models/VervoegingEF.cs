@@ -8,7 +8,8 @@ namespace LatijnData.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public required int Id { get; set; }
-        public required int ToetsId { get; set; }
+        public ToetsEF? Toets { get; set; }
+        public int? ToetsId { get; set; }
         public required bool IsCorrect { get; set; }
 
         public required string Vorm { get; set; }

@@ -14,6 +14,11 @@ namespace LatijnLogic.Services
             _vervoegingen = vervoegingen;
         }
 
+        public async Task<ToetsDTO> GetToets(int id)
+        {
+            return await _data.GetToets(id);
+        }
+
         public async Task<int> CreateToets(ToetsDTO toetsDTO)
         {
             int toetsId = await _data.CreateToets(toetsDTO);

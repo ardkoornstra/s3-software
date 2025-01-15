@@ -15,6 +15,7 @@ namespace LatijnAPI
             CreateMap<ToetsEF, Toets>();
             CreateMap<SessionEF, Session>();
             CreateMap<ToetsDTO, ToetsEF>();
+            CreateMap<ToetsEF, ToetsDTO>();
         }
     }
 }
