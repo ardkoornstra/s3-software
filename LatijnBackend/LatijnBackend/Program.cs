@@ -1,9 +1,23 @@
+using LatijnAPI;
 using LatijnData;
-using LatijnLogic;
+using LatijnData.Repositories;
+using LatijnLogic.Interfaces;
+using LatijnLogic.Services;
+using LatijnLogic.Utility;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy =>
+                      {
+                          policy.AllowAnyOrigin().AllowAnyHeader();
+                      });
+});
 
 // Add services to the container.
 string connectionstring = builder.Configuration["LatijnDB"];
@@ -16,7 +30,20 @@ builder.Services.AddSwaggerGen();
 
 //Dependencies
 builder.Services.AddScoped<IWerkwoordenLogic, WerkwoordenLogic>();
+builder.Services.AddScoped<IUitgangenLogic, UitgangenLogic>();
+builder.Services.AddScoped<IVervoegingenLogic, VervoegingenLogic>();
+builder.Services.AddScoped<IToetsenLogic, ToetsenLogic>();
+builder.Services.AddScoped<IVragenLogic, VragenLogic>();
+builder.Services.AddScoped<ISessionsLogic, SessionsLogic>();
+
 builder.Services.AddScoped<IWerkwoordenData, WerkwoordenData>();
+builder.Services.AddScoped<IUitgangenData, UitgangenData>();
+builder.Services.AddScoped<IVervoegingenData, VervoegingenData>();
+builder.Services.AddScoped<IToetsenData, ToetsenData>();
+builder.Services.AddScoped<ISessionsData, SessionsData>();
+
+builder.Services.AddScoped<IRandomNumbers, RandomNumbers>();
+
 
 var app = builder.Build();
 
@@ -27,6 +54,8 @@ if (app.Environment.IsDevelopment()) {
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(MyAllowSpecificOrigins);
 
 app.UseAuthorization();
 

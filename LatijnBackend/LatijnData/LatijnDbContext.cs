@@ -9,15 +9,17 @@ namespace LatijnData
     public class LatijnDbContext : DbContext
     {
         public LatijnDbContext(DbContextOptions<LatijnDbContext> options) : base(options) {
-            SeedData();
+            SeedWerkwoorden();
+            SeedUitgangen();
         }
 
-        public void SeedData()
+        public void SeedWerkwoorden()
         {
             if (Werkwoorden.Any()) { return; }
 
             List<WerkwoordEF> seedList;
-            using (var reader = new StreamReader("C:\\Users\\Guildramon\\Documents\\GitHub\\s3-software\\LatijnBackend\\LatijnData\\SeedData\\Werkwoorden.csv"))
+            string file = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "Werkwoorden.csv");
+            using (var reader = new StreamReader(file))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
                 csv.Context.RegisterClassMap<WerkwoordMap>();
@@ -28,6 +30,32 @@ namespace LatijnData
             SaveChanges();            
         }
 
+        public void SeedUitgangen()
+        {
+            if (Uitgangen.Any()) { return; }
+
+            List<UitgangEF> seedList;
+            for (int i = 0; i<4; i++)
+            {
+                string file = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "Uitgangen" + (i + 1) + ".csv");
+                using (var reader = new StreamReader(file))
+                using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+                {
+                    csv.Context.RegisterClassMap<UitgangMap>();
+                    var seedData = csv.GetRecords<UitgangEF>();
+                    seedList = seedData.ToList();
+                }
+                Uitgangen.AddRange(seedList);
+                SaveChanges();
+            }
+            
+        }
+
         public DbSet<WerkwoordEF> Werkwoorden { get; set; }
+        public DbSet<UitgangEF> Uitgangen { get; set; }
+        public DbSet<VervoegingEF> Vervoegingen { get; set; }
+        public DbSet<ToetsEF> Toetsen { get; set; }
+        public DbSet<SessionEF> Sessions { get; set; }
+        public DbSet<DocentEF> Docenten { get; set; }
     }
 }

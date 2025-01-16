@@ -1,6 +1,6 @@
 ﻿using LatijnLogic.Types;
 
-namespace LatijnLogic
+namespace LatijnLogic.Interfaces
 {
     public interface IWerkwoordenLogic
     {
