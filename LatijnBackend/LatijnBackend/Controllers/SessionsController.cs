@@ -24,7 +24,7 @@ namespace LatijnAPI.Controllers
             return await _logic.GetSession(id);
         }
 
-        [HttpGet]
+        [HttpGet("docent/")]
         public async Task<List<Session>> GetSessionsByDocent(int docentId)
         {
             return await _logic.GetSessionsByDocent(docentId);
