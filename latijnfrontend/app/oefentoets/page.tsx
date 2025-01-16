@@ -9,6 +9,7 @@ import { Toetsstate } from "@/types/toetsstate";
 export default function Oefentoets() {
   const [state, setState] = useState<Toetsstate>(Toetsstate.Setup);
   const [toetsId, setToetsId] = useState<number>(0);
+  const [toets, setToets] = useState<Toets>();
   const [vragen, setVragen] = useState<Vraag[]>();
 
   const [index, setIndex] = useState<number>(0);
@@ -18,6 +19,8 @@ export default function Oefentoets() {
   function HandleStateChange(toetsstate: Toetsstate) {
     if (toetsstate === Toetsstate.Question) {
       FetchData();
+    } else if (toetsstate === Toetsstate.Result) {
+      FetchAantalGoed();
     }
     setState(toetsstate);
   }
@@ -46,6 +49,16 @@ export default function Oefentoets() {
     }
   }
 
+  function FetchAantalGoed() {
+    try {
+      fetch("https://localhost:7125/api/Toetsen?id=" + toetsId)
+        .then((res) => res.json())
+        .then((data) => setToets(data));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   useEffect(() => {
     //get vragen by toetsid
     if (toetsId != 0) {
@@ -58,6 +71,18 @@ export default function Oefentoets() {
       }
     }
   }, [toetsId]);
+
+  useEffect(() => {
+    if (toets) {
+      setAantalGoed(toets.aantalGoed);
+    }
+  }, [toets]);
+
+  useEffect(() => {
+    if (toetsId != 0) {
+      FetchAantalGoed();
+    }
+  }, [index]);
 
   return (
     <>
@@ -77,6 +102,7 @@ export default function Oefentoets() {
         )) ||
         (state === Toetsstate.Result && (
           <Resultaat
+            toets={toets}
             aantalGoed={aantalGoed}
             totaal={totaal}
             onHandleStateChange={HandleStateChange}

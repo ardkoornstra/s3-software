@@ -37,12 +37,23 @@ export default function Vraag(props: VraagProps) {
       persoon: persoon,
       getal: getal,
     };
-    //Check answer with API///////////////////////////////////////////////
-    //setCorrect
+    //Check answer with API
+    try {
+      fetch("https://localhost:7125/api/Vragen", {
+        method: "POST",
+        body: JSON.stringify(antwoord),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => setCorrect(data));
+    } catch (error) {
+      console.log(error);
+    }
+
     if (correct) {
       props.setAantalGoed(props.aantalGoed + 1);
-    } else {
-      console.log("incorrect");
     }
   }
 

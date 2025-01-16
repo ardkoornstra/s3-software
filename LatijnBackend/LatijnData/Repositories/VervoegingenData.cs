@@ -50,7 +50,10 @@ namespace LatijnData.Repositories
         {
             VervoegingEF vervoeging = await _dbContext.Vervoegingen.Include(v => v.Toets).FirstOrDefaultAsync(v => v.Id == id);
             vervoeging.IsCorrect = isCorrect;
-            vervoeging.Toets.AantalGoed++;
+            if (vervoeging.IsCorrect)
+            {
+                vervoeging.Toets.AantalGoed++;
+            }
             await _dbContext.SaveChangesAsync();
             return vervoeging.IsCorrect;
         }
