@@ -1,7 +1,7 @@
 import { Heading, Text } from "@radix-ui/themes";
 
 interface VormProps {
-  werkwoordsvorm: Werkwoordsvorm;
+  vraag: Vraag;
 }
 
 export default function Vorm(props: VormProps) {
@@ -11,14 +11,14 @@ export default function Vorm(props: VormProps) {
         Benoem de volgende vorm
       </Text>
       <Heading align={"center"} size={"9"}>
-        {props.werkwoordsvorm.vorm}
+        {props.vraag.vorm}
       </Heading>
       <Text align={"center"} as="div">
-        {props.werkwoordsvorm.infinitivus}, {props.werkwoordsvorm.praesens},{" "}
-        {props.werkwoordsvorm.perfectum}, {props.werkwoordsvorm.supinum}
+        {props.vraag.infinitivus}, {props.vraag.praesens},{" "}
+        {props.vraag.perfectum}, {props.vraag.supinum}
       </Text>
       <Text align={"center"} as="div">
-        {props.werkwoordsvorm.betekenis}
+        {props.vraag.betekenis}
       </Text>
     </>
   );

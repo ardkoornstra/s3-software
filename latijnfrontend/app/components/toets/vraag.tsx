@@ -1,22 +1,25 @@
 "use client";
 
-import {
-  AlertDialog,
-  Box,
-  Button,
-  Flex,
-  Link,
-  Section,
-} from "@radix-ui/themes";
-import VraagNr from "../components/toets/vraagnr";
-import { useEffect, useState } from "react";
-import AantalGoed from "../components/toets/aantalgoed";
-import Vorm from "../components/toets/vorm";
-import AntwoordInput from "../components/toets/antwoordinput";
+import { AlertDialog, Box, Button, Flex, Section } from "@radix-ui/themes";
+import VraagNr from "./vraagnr";
+import { Dispatch, SetStateAction, useState } from "react";
+import AantalGoed from "./aantalgoed";
+import Vorm from "./vorm";
+import AntwoordInput from "./antwoordinput";
 import { CheckCircledIcon } from "@radix-ui/react-icons";
+import { Toetsstate } from "@/types/toetsstate";
 
-export default function Vraag() {
-  const [vervoegingen, setVervoegingen] = useState<Werkwoordsvorm[]>();
+interface VraagProps {
+  totaal: number;
+  index: number;
+  setIndex: Dispatch<SetStateAction<number>>;
+  aantalGoed: number;
+  setAantalGoed: Dispatch<SetStateAction<number>>;
+  vragen: Vraag[] | undefined;
+  onHandleStateChange: (toetsstate: Toetsstate) => void;
+}
+
+export default function Vraag(props: VraagProps) {
   const [correct, setCorrect] = useState<boolean>(false);
 
   const [modus, setModus] = useState<string>();
@@ -25,54 +28,49 @@ export default function Vraag() {
   const [persoon, setPersoon] = useState<string>();
   const [getal, setGetal] = useState<string>();
 
-  useEffect(() => {
-    if (!vervoegingen) {
-      try {
-        fetch("https://localhost:7125/api/Vervoegingen?amount=" + totaal)
-          .then((res) => res.json())
-          .then((data) => setVervoegingen(data));
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  }, []);
-
   function HandleSubmit() {
-    if (
-      modus == vervoegingen[index].modus &&
-      tempus == vervoegingen[index].tempus &&
-      genus == vervoegingen[index].genus &&
-      persoon == vervoegingen[index].persoon &&
-      getal == vervoegingen[index].getal
-    ) {
-      //Correct
-      setCorrect(true);
-      setAantal(aantal + 1);
-      console.log("AAAAA");
+    const antwoord: Antwoord = {
+      id: props.vragen[props.index].id,
+      modus: modus,
+      tempus: tempus,
+      genus: genus,
+      persoon: persoon,
+      getal: getal,
+    };
+    //Check answer with API///////////////////////////////////////////////
+    //setCorrect
+    if (correct) {
+      props.setAantalGoed(props.aantalGoed + 1);
     } else {
-      console.log("BBBBB");
+      console.log("incorrect");
     }
   }
 
   function HandleNext() {
     setCorrect(false);
-    setIndex(index + 1);
+    props.setIndex(props.index + 1);
+  }
+
+  function HandleFinish() {
+    props.onHandleStateChange(Toetsstate.Result);
+    setCorrect(false);
+    props.setIndex(0);
   }
 
   return (
     <>
-      {vervoegingen ? (
+      {props.vragen && props.vragen.length != 0 ? (
         <>
           <Section size={"1"}>
             <Flex justify={"between"} p={"3"}>
               <Box>
-                <VraagNr nummer={index + 1} totaal={totaal} />
+                <VraagNr nummer={props.index + 1} totaal={props.totaal} />
               </Box>
               <Box>
-                <AantalGoed aantal={aantal} />
+                <AantalGoed aantal={props.aantalGoed} />
               </Box>
             </Flex>
-            <Vorm werkwoordsvorm={vervoegingen[index]} />
+            <Vorm vraag={props.vragen[props.index]} />
           </Section>
           <AntwoordInput
             onModusChange={setModus}
@@ -96,29 +94,20 @@ export default function Vraag() {
                     : "Helaas, dat is onjuist."}
                 </AlertDialog.Title>
                 <AlertDialog.Description>
-                  {vervoegingen[index].vorm.charAt(0).toUpperCase() +
-                    vervoegingen[index].vorm.slice(1)}{" "}
+                  {props.vragen[props.index].vorm.charAt(0).toUpperCase() +
+                    props.vragen[props.index].vorm.slice(1)}{" "}
                   is {correct ? "inderdaad " : "niet "}
                   de {modus} {tempus} {genus} {persoon} persoon {getal} van{" "}
-                  {vervoegingen[index].infinitivus}{" "}
-                  {"(" + vervoegingen[index].betekenis + ")"}
+                  {props.vragen[props.index].infinitivus}{" "}
+                  {"(" + props.vragen[props.index].betekenis + ")"}
                   {correct ? "!" : "."}
                 </AlertDialog.Description>
                 <Flex justify={"end"}>
                   <AlertDialog.Action>
-                    {index != totaal - 1 ? (
+                    {props.index != props.totaal - 1 ? (
                       <Button onClick={HandleNext}>Volgende vraag</Button>
                     ) : (
-                      <Link
-                        href={
-                          "/resultaat?aantalGoed=" +
-                          aantal +
-                          "&totaal=" +
-                          totaal
-                        }
-                      >
-                        <Button>Toets voltooien</Button>
-                      </Link>
+                      <Button onClick={HandleFinish}>Toets voltooien</Button>
                     )}
                   </AlertDialog.Action>
                 </Flex>
