@@ -1,5 +1,6 @@
 ﻿using LatijnLogic.Interfaces;
 using LatijnLogic.Services;
+using LatijnLogic.Types;
 using Moq;
 using System;
 using System.Threading.Tasks;
@@ -31,12 +32,14 @@ namespace LatijnTest.Services
         {
             // Arrange
             var werkwoordenLogic = this.CreateWerkwoordenLogic();
+            Werkwoord werkwoord = new Werkwoord { WoordID = 29, Infinitivus = "abstinere", Praesens = "abstineo", Perfectum = "abstinui", Supinum = "abstentum", Conjugatie = 2, Betekenis = "weghouden" };
+            mockWerkwoordenData.Setup(m => m.GetAllWerkwoorden().Result).Returns(new List<Werkwoord>() { werkwoord } );
 
             // Act
             var result = await werkwoordenLogic.GetAllWerkwoorden();
 
             // Assert
-            Assert.True(false);
+            Assert.Equivalent(result, new List<Werkwoord>() { werkwoord});
             this.mockRepository.VerifyAll();
         }
     }

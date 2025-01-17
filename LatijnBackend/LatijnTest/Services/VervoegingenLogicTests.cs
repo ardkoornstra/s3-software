@@ -59,9 +59,11 @@ namespace LatijnTest.Services
         public void Vervoeg_StateUnderTest_ExpectedBehavior()
         {
             // Arrange
+            Werkwoord werkwoord = new Werkwoord { WoordID = 29, Infinitivus = "abstinere", Praesens = "abstineo", Perfectum = "abstinui", Supinum = "abstentum", Conjugatie = 2, Betekenis = "weghouden" };
+            Uitgang uitgang = new Uitgang { UitgangID = 137, Conjugatie = 2, Vorm = "nt", Modus = "indicativus", Tempus = "praesens", Genus = "activum", Persoon = "derde", Getal = "pluralis", Stam = "praesens" };
             var vervoegingenLogic = this.CreateVervoegingenLogic();
-            List<Werkwoord> werkwoorden = null;
-            List<Uitgang> uitgangen = null;
+            List<Werkwoord> werkwoorden = new List<Werkwoord>() { werkwoord };
+            List<Uitgang> uitgangen = new List<Uitgang>() { uitgang };
 
             // Act
             var result = vervoegingenLogic.Vervoeg(
@@ -69,7 +71,7 @@ namespace LatijnTest.Services
                 uitgangen);
 
             // Assert
-            Assert.True(false);
+            Assert.Equivalent(result, new List<string>() { "abstinent" }); 
             this.mockRepository.VerifyAll();
         }
 
@@ -77,11 +79,16 @@ namespace LatijnTest.Services
         public void CreateVervoegingenList_StateUnderTest_ExpectedBehavior()
         {
             // Arrange
+            string vorm = "abstinent";
+            Uitgang uitgang = new Uitgang { UitgangID = 137, Conjugatie = 2, Vorm = "nt", Modus = "indicativus", Tempus = "praesens", Genus = "activum", Persoon = "derde", Getal = "pluralis", Stam = "praesens" };
+            Werkwoord werkwoord = new Werkwoord { WoordID = 29, Infinitivus = "abstinere", Praesens = "abstineo", Perfectum = "abstinui", Supinum = "abstentum", Conjugatie = 2, Betekenis = "weghouden" };
             var vervoegingenLogic = this.CreateVervoegingenLogic();
-            List<string> vormen = null;
-            List<Uitgang> uitgangen = null;
-            List<Werkwoord> werkwoorden = null;
-            int toetsId = 0;
+            List<string> vormen = new List<string>() { vorm };
+            List<Uitgang> uitgangen = new List<Uitgang>() { uitgang };
+            List<Werkwoord> werkwoorden = new List<Werkwoord>() { werkwoord };
+            int toetsId = 1;
+
+            List<Vervoeging> vervoeging = new List<Vervoeging>() { new Vervoeging { ToetsId = toetsId, IsCorrect = false, Vorm = "abstinent", Modus = "indicativus", Tempus = "praesens", Genus = "activum", Persoon = "derde", Getal = "pluralis", Infinitivus = "abstinere", Praesens = "abstineo", Perfectum = "abstinui", Supinum = "abstentum", Conjugatie = 2, Betekenis = "weghouden" } };
 
             // Act
             var result = vervoegingenLogic.CreateVervoegingenList(
@@ -91,7 +98,7 @@ namespace LatijnTest.Services
                 toetsId);
 
             // Assert
-            Assert.True(false);
+            Assert.Equivalent(result, vervoeging);
             this.mockRepository.VerifyAll();
         }
     }
