@@ -1,5 +1,6 @@
 ﻿using LatijnLogic.Interfaces;
 using LatijnLogic.Services;
+using LatijnLogic.Types;
 using Moq;
 using System;
 using System.Threading.Tasks;
@@ -36,16 +37,57 @@ namespace LatijnTest.Services
         }
 
         [Fact]
-        public async Task CreateVervoegingen_StateUnderTest_ExpectedBehavior()
+        public void AdjustConjugatie_StateUnderTest_ExpectedBehavior()
+        {
+            // Arrange
+            Werkwoord werkwoord = new Werkwoord { WoordID = 29, Infinitivus = "abstinere", Praesens = "abstineo", Perfectum = "abstinui", Supinum = "abstentum", Conjugatie = 2, Betekenis = "weghouden" };
+            var vervoegingenLogic = this.CreateVervoegingenLogic();
+            List<Werkwoord> werkwoorden = new List<Werkwoord>() { werkwoord };
+            List<int> uitgangenIDs = new List<int>() { 6 };
+
+            // Act
+            var result = vervoegingenLogic.AdjustConjugatie(
+                werkwoorden,
+                uitgangenIDs);
+
+            // Assert
+            Assert.Equivalent(result, new List<int>() { 137 });
+            this.mockRepository.VerifyAll();
+        }
+
+        [Fact]
+        public void Vervoeg_StateUnderTest_ExpectedBehavior()
         {
             // Arrange
             var vervoegingenLogic = this.CreateVervoegingenLogic();
-            int amount = 0;
+            List<Werkwoord> werkwoorden = null;
+            List<Uitgang> uitgangen = null;
+
+            // Act
+            var result = vervoegingenLogic.Vervoeg(
+                werkwoorden,
+                uitgangen);
+
+            // Assert
+            Assert.True(false);
+            this.mockRepository.VerifyAll();
+        }
+
+        [Fact]
+        public void CreateVervoegingenList_StateUnderTest_ExpectedBehavior()
+        {
+            // Arrange
+            var vervoegingenLogic = this.CreateVervoegingenLogic();
+            List<string> vormen = null;
+            List<Uitgang> uitgangen = null;
+            List<Werkwoord> werkwoorden = null;
             int toetsId = 0;
 
             // Act
-            var result = await vervoegingenLogic.CreateVervoegingen(
-                amount,
+            var result = vervoegingenLogic.CreateVervoegingenList(
+                vormen,
+                uitgangen,
+                werkwoorden,
                 toetsId);
 
             // Assert

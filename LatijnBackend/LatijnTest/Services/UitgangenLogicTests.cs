@@ -1,5 +1,6 @@
 ﻿using LatijnLogic.Interfaces;
 using LatijnLogic.Services;
+using LatijnLogic.Types;
 using Moq;
 using System;
 using System.Threading.Tasks;
@@ -30,13 +31,15 @@ namespace LatijnTest.Services
         public async Task GetAllUitgangen_StateUnderTest_ExpectedBehavior()
         {
             // Arrange
+            Uitgang uitgang = new Uitgang { UitgangID = 1, Conjugatie = 1, Vorm = "o", Modus = "indicativus", Tempus = "praesens", Genus = "activum", Persoon = "eerste", Getal = "singularis", Stam = "praesens" };
+            mockUitgangenData.Setup(m => m.GetAllUitgangen().Result).Returns(new List<Uitgang>() { uitgang });
             var uitgangenLogic = this.CreateUitgangenLogic();
 
             // Act
             var result = await uitgangenLogic.GetAllUitgangen();
 
             // Assert
-            Assert.True(false);
+            Assert.Equivalent(result, new List<Uitgang>() { uitgang });
             this.mockRepository.VerifyAll();
         }
     }

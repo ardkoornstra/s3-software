@@ -41,7 +41,7 @@ namespace LatijnLogic.Services
             return await _vervoegingenData.CreateVervoegingen(shuffledVervoegingen);
         }
 
-        private List<int> AdjustConjugatie(List<Werkwoord> werkwoorden, List<int> uitgangenIDs)
+        public List<int> AdjustConjugatie(List<Werkwoord> werkwoorden, List<int> uitgangenIDs)
         {
             List<int> newUitgangenIDs = new List<int>();
             for (int i = 0; i<werkwoorden.Count(); i++)
@@ -53,7 +53,7 @@ namespace LatijnLogic.Services
             return newUitgangenIDs;
         }
 
-        private List<string> Vervoeg(List<Werkwoord> werkwoorden, List<Uitgang> uitgangen)
+        public List<string> Vervoeg(List<Werkwoord> werkwoorden, List<Uitgang> uitgangen)
         {
             List<string> vormen = new List<string>();
             for (int i = 0; i < werkwoorden.Count(); i++)
@@ -82,7 +82,7 @@ namespace LatijnLogic.Services
             return vormen;
         }
 
-        private List<Vervoeging> CreateVervoegingenList(List<string> vormen, List<Uitgang> uitgangen, List<Werkwoord> werkwoorden, int toetsId)
+        public List<Vervoeging> CreateVervoegingenList(List<string> vormen, List<Uitgang> uitgangen, List<Werkwoord> werkwoorden, int toetsId)
         {
             List<Vervoeging> vervoegingen = new List<Vervoeging>();
             for (int i = 0; i < vormen.Count; i++)

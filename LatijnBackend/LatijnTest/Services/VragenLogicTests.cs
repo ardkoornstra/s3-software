@@ -1,5 +1,6 @@
 ﻿using LatijnLogic.Interfaces;
 using LatijnLogic.Services;
+using LatijnLogic.DTOs;
 using Moq;
 using System;
 using System.Threading.Tasks;
